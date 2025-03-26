@@ -9,7 +9,7 @@ fn main() {
         let _ = match rm_dir_result {
             Ok(dir) => dir,
             Err(_) => eprintln!(
-                "Failed to remove directory (Note: this util cannot remove directories with contents)"
+                "Failed to remove directory (Note: this util cannot remove directories with contents- try rmrecursive.)"
             ),
         };
     }
