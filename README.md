@@ -3,6 +3,9 @@
 A collection of CLI utils written in rust, inspired by (but not a 1:1 recreation of) projects like GNU Coreutils and Uutils Coreutils
 
 ## Current Utils:
+- arch: Prints the systems CPU architecture
+- sys: Prints the systems OS family
+- os: Prints the systems OS
 - echo: Prints user input
 - ls: Lists files in a directory
 - mkdir: Creates a directory
