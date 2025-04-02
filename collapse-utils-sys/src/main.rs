@@ -30,8 +30,24 @@ fn main() {
         "-libp" | "--lib-prefix" => {
             println!("{}", DLL_PREFIX)
         }
+        "-h" | "--help" => {
+            help();
+        }
         &_ => {
             //
         }
     }
+}
+
+fn help() {
+    println!("-a OR --arch             : Print the CPU architecture");
+    println!("-o OR --operating-system : Print the operating system");
+    println!("-f OR --family           : Print the OS family");
+    println!("-ext OR --ex-extension   : Print the executable extension");
+    println!("-exs OR --ex-suffix      : Print the executable suffix");
+    println!("-libt OR --lib-extension : Print the library extension");
+    println!("-libs OR --lib-suffix    : Print the library suffix");
+    println!("-libp OR --lib-prefix    : Print the library prefix");
+    print!("\n");
+    println!("-h OR --help : Print this help text");
 }
