@@ -1,42 +1,33 @@
 use std::env::{
     args,
-    consts::{
-        ARCH,
-        OS,
-        FAMILY,
-        EXE_EXTENSION,
-        EXE_SUFFIX,
-        DLL_EXTENSION,
-        DLL_SUFFIX,
-        DLL_PREFIX
-    }
+    consts::{ARCH, DLL_EXTENSION, DLL_PREFIX, DLL_SUFFIX, EXE_EXTENSION, EXE_SUFFIX, FAMILY, OS},
 };
 
 fn main() {
     let args: Vec<_> = args().collect();
     match args[1].as_str() {
-        "-arch" => {
+        "-a" | "--arch" => {
             println!("{}", ARCH)
         }
-        "-os" => {
+        "-o" | "--operating-system" => {
             println!("{}", OS)
         }
-        "-family" => {
+        "-f" | "--family" => {
             println!("{}", FAMILY)
         }
-        "-ext" => {
+        "-ext" | "--ex-extension" => {
             println!("{}", EXE_EXTENSION)
         }
-        "-exs" => {
+        "-exs" | "--ex-suffix" => {
             println!("{}", EXE_SUFFIX)
         }
-        "-libt" => {
+        "-libt" | "--lib-extension" => {
             println!("{}", DLL_EXTENSION)
         }
-        "-libs" => {
+        "-libs" | "--lib-suffix" => {
             println!("{}", DLL_SUFFIX)
         }
-        "-libp" => {
+        "-libp" | "--lib-prefix" => {
             println!("{}", DLL_PREFIX)
         }
         &_ => {
