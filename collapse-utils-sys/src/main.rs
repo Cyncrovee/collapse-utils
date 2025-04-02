@@ -5,36 +5,38 @@ use std::env::{
 
 fn main() {
     let args: Vec<_> = args().collect();
-    match args[1].as_str() {
-        "-a" | "--arch" => {
-            println!("{}", ARCH)
-        }
-        "-o" | "--operating-system" => {
-            println!("{}", OS)
-        }
-        "-f" | "--family" => {
-            println!("{}", FAMILY)
-        }
-        "-ext" | "--ex-extension" => {
-            println!("{}", EXE_EXTENSION)
-        }
-        "-exs" | "--ex-suffix" => {
-            println!("{}", EXE_SUFFIX)
-        }
-        "-libt" | "--lib-extension" => {
-            println!("{}", DLL_EXTENSION)
-        }
-        "-libs" | "--lib-suffix" => {
-            println!("{}", DLL_SUFFIX)
-        }
-        "-libp" | "--lib-prefix" => {
-            println!("{}", DLL_PREFIX)
-        }
-        "-h" | "--help" => {
-            help();
-        }
-        &_ => {
-            //
+    for arg in args {
+        match arg.as_str() {
+            "-a" | "--arch" => {
+                println!("{}", ARCH)
+            }
+            "-o" | "--operating-system" => {
+                println!("{}", OS)
+            }
+            "-f" | "--family" => {
+                println!("{}", FAMILY)
+            }
+            "-ext" | "--ex-extension" => {
+                println!("{}", EXE_EXTENSION)
+            }
+            "-exs" | "--ex-suffix" => {
+                println!("{}", EXE_SUFFIX)
+            }
+            "-libt" | "--lib-extension" => {
+                println!("{}", DLL_EXTENSION)
+            }
+            "-libs" | "--lib-suffix" => {
+                println!("{}", DLL_SUFFIX)
+            }
+            "-libp" | "--lib-prefix" => {
+                println!("{}", DLL_PREFIX)
+            }
+            "-h" | "--help" => {
+                help();
+            }
+            &_ => {
+                //
+            }
         }
     }
 }
