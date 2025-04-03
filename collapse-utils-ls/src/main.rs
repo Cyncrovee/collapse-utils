@@ -1,24 +1,45 @@
+use clap::{Arg, ArgAction, command};
 use std::{
-    env::{args, current_dir},
+    env::current_dir,
     fs::{DirEntry, read_dir},
     io::Error,
 };
 
 fn main() {
     // Set initial variables
-    let args: Vec<_> = args().collect();
     let dir = current_dir().unwrap();
     let dir_contents = read_dir(dir).unwrap();
     let mut is_size_shown = false;
     let mut is_hidden_shown = false;
 
     // Parse CLI args
-    for arg in args {
-        if arg == "-s" {
-            is_size_shown = true;
+    let matches = command!()
+        .about("Shows information about the system.")
+        .arg(
+            Arg::new("show-size")
+                .short('s')
+                .long("show-size")
+                .help("Print the size of the item")
+                .action(ArgAction::SetTrue),
+        )
+        .arg(
+            Arg::new("show-hidden")
+                .short('a')
+                .long("show-hidden")
+                .help("Print hidden items")
+                .action(ArgAction::SetTrue),
+        )
+        .get_matches();
+    match matches.get_flag("show-size") {
+        true => is_size_shown = true,
+        false => {
+            // Pass
         }
-        if arg == "-a" {
-            is_hidden_shown = true;
+    }
+    match matches.get_flag("show-hidden") {
+        true => is_hidden_shown = true,
+        false => {
+            // Pass
         }
     }
 
